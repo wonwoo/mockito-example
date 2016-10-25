@@ -10,6 +10,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Matchers.anyObject;
+import static org.mockito.Matchers.anyString;
 
 /**
  * Created by wonwoo on 2016. 10. 25..
@@ -26,9 +28,9 @@ public class InjectMockServiceTest {
   @Test
   public void findBynameTest() {
     //given
-    given(mockRepository.findByname("wonwoo")).willReturn(new Account(1L, "wonwoo", "wonwoo@test.com"));
+    given(mockRepository.findByname(anyObject())).willReturn(new Account(1L, "wonwoo", "wonwoo@test.com"));
     //when
-    final Account account = mockService.findByname("wonwoo");
+    final Account account = mockService.findByname("123123");
     //then
     assertThat(account.getId(), is(1L));
     assertThat(account.getName(), is("wonwoo"));
