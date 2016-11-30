@@ -23,4 +23,12 @@ public class MockService {
     mockRepository.findByname(name);
     return account;
   }
+
+  public Account findByEmail(String email) {
+    final Account account = mockRepository.findByEmail(email);
+    if (account == null) {
+      throw new EmailNotFoundException();
+    }
+    return account;
+  }
 }

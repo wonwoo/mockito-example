@@ -10,4 +10,6 @@ public interface MockRepository {
   List<Account> findAll();
 
   Account findByname(String name);
+
+  Account findByEmail(String email);
 }
